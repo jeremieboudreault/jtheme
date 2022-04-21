@@ -1,0 +1,13 @@
+Package: jtheme
+Type: Package
+Title: A custom ggplot2 theme
+Version: 0.0.1
+Author: Jeremie Boudreault
+Maintainer: Jeremie Boudreault <prename.name@inrs.ca>
+Description: jtheme is a custom theme for ggplot2 for scientific purposes such as
+    articles, presentations, reports, etc.
+License: TBD...
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2
+Roxygen: list(markdown = TRUE)
