@@ -176,9 +176,8 @@ labs(
     x  = "Concentration d'ozone (ppm)",
     y  = "Température (ºC)"
 ) +
-facet_wrap(facets = "Month") +
+facet_wrap(facets = "MonthName") +
 jtheme(show.grid = TRUE, facets = TRUE)
 
 # Save.
 jtheme::save_ggplot("_plots/fig_5_rectbig.jpg", size = "rectbig")
-jtheme::save_ggplot("_plots/fig_5_squaredbig.jpg", size = "squaredbig")
