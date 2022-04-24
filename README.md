@@ -2,7 +2,7 @@
 ================================================================================
 
 ![](https://img.shields.io/badge/life_cycle-maturing-blue)
-![](https://img.shields.io/badge/release-version-0.0.1-inactive)
+![](https://img.shields.io/badge/release_version-0.0.1-inactive)
 ![](https://img.shields.io/badge/docs-0%25-red)
 ![](https://img.shields.io/badge/tests-0%25-black)
 
