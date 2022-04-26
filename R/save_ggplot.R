@@ -7,23 +7,34 @@
 #' when you need all your figures to have the same aspect ratio.
 #'
 #' @param file : Filename to save the plot.
-#' @param size : One of either `rect`, `rectbig`, `squared`, `squaredbig`.
+#' @param size : One of either `rect`, `rectbig`, `rectsmall`, `sqr`, `sqrsmall`, `sqrbig`.
 #' @param ... : Other arguments passed to [ggplot2::ggsave()].
 #'
 #' @export
-save_ggplot <- function(file, size, ...) {
-    if (size == "rect") {
+save_ggplot <- function(file, size = "rect", ...) {
+    if (size == "rectsmall") {
+        w <- 5
+        h <- 3.5
+    } else if (size == "rect") {
         w <- 7
         h <- 5
     } else if (size == "rectbig") {
         w <- 8
         h <- 6
-    } else if (size == "squared") {
+    } else if (size == "sqrsmall") {
+        w <- 4
+        h <- 3.5
+    } else if (size == "sqr") {
         w <- 6
         h <- 5
-    } else if (size == "squaredbig") {
+    } else if (size == "sqrbig") {
         w <- 8
         h <- 7
+    } else {
+        warning(
+            "Argument 'size' invalid. Using default value 'rect'.\n",
+            "> Valid values are rect, rectsmall, rectbig, sqr, sqrsmall, sqrbig."
+        )
     }
     ggplot2::ggsave(
         filename = file,
