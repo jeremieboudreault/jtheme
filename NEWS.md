@@ -8,3 +8,4 @@ To-do list :
 + Mettre à jour les couleurs de `colors` avec des palettes.
 + Ajouter une police pour le style.
 + Translate plot to Enlight
++ Fix expand that does not allow to have a new scale_x or scale_y
