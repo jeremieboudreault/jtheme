@@ -57,6 +57,9 @@ jtheme <- function(
     # Cretate custom theme.
     th <- theme(
 
+        # Text.
+        text = element_text(family = "Source Sans Pro"),
+
         # Title
         plot.title = element_text(
             size   = 14,
@@ -68,9 +71,9 @@ jtheme <- function(
 
         # Subtitle
         plot.subtitle = element_text(
-            size = 12,
-            hjust = 0.5,
-            vjust = 1,
+            size   = 12,
+            hjust  = 0.5,
+            vjust  = 1,
             margin = margin(b = 10, t = -5)
         ),
 
