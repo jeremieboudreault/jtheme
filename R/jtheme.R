@@ -18,6 +18,7 @@
 #' @export
 jtheme <- function(
     show.grid    = FALSE,
+    hide.border  = FALSE,
     legend.pos   = "bottom",
     legend.title = TRUE,
     facets       = FALSE,
@@ -25,12 +26,24 @@ jtheme <- function(
     expand.x     = TRUE,
     expand.y     = TRUE) {
 
+    # Set base values.
+    axis.size <- 0.3
+    ticks.color <- "black"
+
     # Check for grid.
     grid.color <- if (show.grid) "grey70" else "white"
 
     # Panel color.
     panel.color <- if (facets) "black" else NA
     axis.color <- if (facets) NA else "black"
+
+    # Hide border.
+    if (hide.border) {
+        axis.color  <- NA
+        panel.color <- NA
+        ticks.color <- NA
+        axis.size   <- 0
+    }
 
     # Replace legend position when set to topleft, topright and bottomright.
     if (legend.pos == "topleft") {
@@ -68,13 +81,15 @@ jtheme <- function(
         axis.text = element_text(size = 9.5, color = "black"),
 
         # Increases margins.
-        axis.text.x = element_text(margin = margin(t = 5, b = 5)),
-        axis.text.y = element_text(margin = margin(r = 5, l = 5)),
+        axis.text.x.bottom = element_text(margin = margin(t = 5, b = 5)),
+        axis.text.x.top    = element_text(margin = margin(t = 5, b = 5)),
+        axis.text.y.right  = element_text(margin = margin(r = 5, l = 5)),
+        axis.text.y.left   = element_text(margin = margin(r = 5, l = 5)),
 
         # Set axis lines and ticks.
-        axis.line         = element_line(size = 0.3, colour = axis.color),
-        axis.ticks        = element_line(size = 0.3, colour = "black"),
-        axis.ticks.length = unit(.15, "cm"),
+        axis.line         = element_line(size = axis.size, colour = axis.color),
+        axis.ticks        = element_line(size = axis.size, colour = ticks.color),
+        axis.ticks.length = unit(ifelse(hide.border, 0, .15), "cm"),
 
         # Set grid.
         panel.grid.major = element_line(
