@@ -14,7 +14,7 @@
         geom = "line",
         new  = list(
             colour = "black",
-            size   = 0.75
+            size   = 0.8
         )
     )
 
@@ -23,7 +23,7 @@
         geom = "bar",
         new  = list(
             colour = "black",
-            fill   = colors$light_blue,
+            fill   = "grey90",
             lwd    = 0.3
         )
     )
