@@ -35,6 +35,7 @@ save_ggplot <- function(file, size = "rect", ...) {
             "Argument 'size' invalid. Using default value 'rect'.\n",
             "> Valid values are rect, rectsmall, rectbig, sqr, sqrsmall, sqrbig."
         )
+        w <- 7; h <- 5
     }
     ggplot2::ggsave(
         filename = file,
