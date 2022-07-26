@@ -6,7 +6,7 @@
 ![](https://img.shields.io/badge/docs-0%25-red)
 ![](https://img.shields.io/badge/tests-0%25-black)
 
-Welcome to `jtheme`, a custom theme for ggplot2, adaped for scientif content such as papers, presentations and more. Here are some examples of the `jtheme` in action !
+Welcome to `jtheme`, a custom theme for ggplot2, adapted for scientific content such as papers, presentations and more. Here are some examples of the `jtheme` in action !
 
 ***Note** : All illustrations are from fake data.*
 
