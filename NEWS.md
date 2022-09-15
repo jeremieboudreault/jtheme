@@ -10,3 +10,4 @@ To-do list :
 + Corriger la police par défaut dans geom_text()
 + Translate plots to English
 + Fix expand that does not allow to have a new scale_x or scale_y
++ Tight options for facets
