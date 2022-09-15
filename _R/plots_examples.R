@@ -64,7 +64,7 @@ ggtitle("Classical histogram", "ggplot2")
 library("jtheme")
 ggplot() + geom_histogram(data = data.frame(x = rnorm(100)), aes(x = x)) +
 ggtitle("Classical histogram", "jtheme") +
-jtheme(expand.y = FALSE)
+jtheme(expand_xy = "x_only")
 
 
 # Histogram with two categories ------------------------------------------------
@@ -85,9 +85,9 @@ scale_fill_manual(
 ggtitle("Températures quotidiennes de l'air", "Deux villes du Québec") +
 labs(x = "Mesures quotidiennes (ºC)", y = "Fréquence") +
 jtheme(
-    legend.pos   = "topleft",
-    expand.y     = FALSE,
-    legend.title = FALSE
+    legend_pos     = "topleft",
+    expand_xy      = FALSE,
+    show_leg_title = FALSE
 )
 
 # Save plot.
@@ -109,7 +109,7 @@ scale_color_manual(
 ) +
 ggtitle("Évolution des GES", "Niveau mondial") +
 labs(y = "Concentration (ppm)", x = "Années") +
-jtheme(legend.pos = "topright", expand = FALSE, legend.title = FALSE)
+jtheme(legend_pos = "topright", expand_xy = FALSE, show_leg_title = FALSE)
 
 # Save.
 jtheme::save_ggplot("_plots/fig_2_squared.jpg", size = "squared")
@@ -132,7 +132,7 @@ geom_line(
 scale_color_brewer(palette = "RdBu") +
 ggtitle("Concentration de quatre polluants") +
 labs(y = "Concentration (ppm)", x = "Jour de l'année") +
-jtheme(expand.x = FALSE, legend.title = FALSE, legend.pos = "topleft")
+jtheme(expand_xy = FALSE, show_leg_title = FALSE, legend_pos = "topleft")
 
 # Save.
 jtheme::save_ggplot("_plots/fig_3_rect.jpg", size = "rect")
@@ -155,7 +155,7 @@ labs(
     x   = "Concentration d'ozone (ppm)",
     y   = "Température (ºC)"
 ) +
-jtheme(show.grid = TRUE)
+jtheme(show_grid = TRUE)
 
 # Save.
 jtheme::save_ggplot("_plots/fig_4_rect.jpg", size = "rect")
@@ -177,7 +177,7 @@ labs(
     y  = "Température (ºC)"
 ) +
 facet_wrap(facets = "MonthName") +
-jtheme(show.grid = TRUE, facets = TRUE)
+jtheme(show_grid = TRUE, borders = "all")
 
 # Save.
 jtheme::save_ggplot("_plots/fig_5_rectbig.jpg", size = "rectbig")
