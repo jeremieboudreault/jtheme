@@ -22,8 +22,8 @@ jtheme <- function(
     borders          = "normal",
     expand_xy        = TRUE,
     legend_pos       = "bottom",
-    legend_nrow      = 0L,
-    legend_ncol      = 0L,
+    legend_nrow      = NULL,
+    legend_ncol      = NULL,
     legend_byrow     = FALSE,
     rotate_x_labs    = FALSE,
     show_grid        = FALSE,
@@ -160,6 +160,10 @@ jtheme <- function(
     return(list(
         do.call(scale_x_continuous, c(params_x_cont_1, params_x_cont_2)),
         do.call(scale_y_continuous, c(params_y_cont_2)),
+        guides(
+            color = guide_legend(nrow = legend_nrow, ncol = legend_ncol, byrow = legend_byrow),
+            fill  = guide_legend(nrow = legend_nrow, ncol = legend_ncol, byrow = legend_byrow),
+        ),
         th
     ))
 
