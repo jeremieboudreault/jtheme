@@ -1,7 +1,7 @@
 Package: jtheme
 Type: Package
 Title: A custom ggplot2 theme
-Version: 0.0.1
+Version: 0.0.2
 Author: Jeremie Boudreault
 Maintainer: Jeremie Boudreault <prename.name@inrs.ca>
 Description: jtheme is a custom theme for ggplot2 for scientific purposes such as
