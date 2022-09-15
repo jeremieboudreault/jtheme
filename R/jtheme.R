@@ -6,39 +6,43 @@
 #' In addition to a custom theme, `jtheme()` allows the user to have different
 #' add-on to graph that are explained below.
 #'
-#' @param show.grid : Toggle on/off the grid on ggplot2.
-#' @param legend.pos : Legend position. `bottomright`, `topleft`, `topright`
-#' refers to inner legend while `bottom`, `left` refers to legend outside of the plot.
-#' @param legend.title : Show legend title or not.
-#' @param facets : Do you graph include facets or not (style will slightly change)
-#' @param expand : Should an extra spacing be added `x`/`y` values and axes
-#' @param expand.x : Should an extras spacing be added between `x` value and y-axis
-#' @param expand.y : Should an extra spacing be added between `y` values and x-axis
+#' @param borders : Show "all" (all around the plot), "normal" (x and y axe) or "hide" borders.
+#' @param expand_xy : Should an extra spacing be added `x`/`y` values and axes. Values are `TRUE`, `FALSE`, `"x_only"` and `"y_only"`.
+#' @param legend_pos : Legend position. `bottomright`, `topleft`, `topright`
+#' refers o inner legend while `bottom`, `left` refers to legend outside of the plot.
+#' @param legend_nrow : Number of row the the legend.
+#' @param legend_ncol : Number of cols the the legend.
+#' @param legend_byrow : Should the legend be filled by row.
+#' @param rotate_x_labs : Parameter to rotate the x labels.
+#' @param show_grid : Toggle on/off the grid on ggplot2.
+#' @param x_labs_to_months : Transformation of julian days to month ("fr" or "en").
 #'
 #' @export
 jtheme <- function(
-    show.grid    = FALSE,
-    hide.border  = FALSE,
-    legend.pos   = "bottom",
-    legend.title = TRUE,
-    facets       = FALSE,
-    expand       = TRUE,
-    expand.x     = TRUE,
-    expand.y     = TRUE) {
+    borders          = "normal",
+    expand_xy        = TRUE,
+    legend_pos       = "bottom",
+    legend_nrow      = 0L,
+    legend_ncol      = 0L,
+    legend_byrow     = FALSE,
+    rotate_x_labs    = FALSE,
+    show_grid        = FALSE,
+    show_leg_title   = TRUE,
+    x_labs_to_months = FALSE) {
 
     # Set base values.
     axis.size <- 0.3
     ticks.color <- "black"
 
     # Check for grid.
-    grid.color <- if (show.grid) "grey70" else "white"
+    grid.color <- if (show_grid) "grey70" else "white"
 
     # Panel color.
-    panel.color <- if (facets) "black" else NA
-    axis.color <- if (facets) NA else "black"
+    panel.color <- if (borders == "all") "black" else NA
+    axis.color <- if (borders == "all") NA else "black"
 
     # Hide border.
-    if (hide.border) {
+    if (borders == "hide") {
         axis.color  <- NA
         panel.color <- NA
         ticks.color <- NA
@@ -46,15 +50,15 @@ jtheme <- function(
     }
 
     # Replace legend position when set to topleft, topright and bottomright.
-    if (legend.pos == "topleft") {
-        legend.pos <- c(0.9, 0.9)
-    } else if (legend.pos == "topright") {
-        legend.pos <- c(0.15, 0.9)
-    } else if (legend.pos == "bottomright") {
-        legend.pos <- c(0.9, .1)
+    if (legend_pos == "topleft") {
+        legend_pos <- c(0.9, 0.9)
+    } else if (legend_pos == "topright") {
+        legend_pos <- c(0.15, 0.9)
+    } else if (legend_pos == "bottomright") {
+        legend_pos <- c(0.9, .1)
     }
 
-    # Cretate custom theme.
+    # Create custom theme.
     th <- theme(
 
         # Text.
@@ -92,7 +96,7 @@ jtheme <- function(
         # Set axis lines and ticks.
         axis.line         = element_line(size = axis.size, colour = axis.color),
         axis.ticks        = element_line(size = axis.size, colour = ticks.color),
-        axis.ticks.length = unit(ifelse(hide.border, 0, .15), "cm"),
+        axis.ticks.length = unit(ifelse(borders == "hide", 0, .15), "cm"),
 
         # Set grid.
         panel.grid.major = element_line(
@@ -107,7 +111,7 @@ jtheme <- function(
 
         # Legend position and filling.
         legend.background = element_blank(),
-        legend.position   = legend.pos,
+        legend.position   = legend_pos,
         legend.key        = element_rect(fill = NA),
         legend.margin     = margin(t = -5),
 
@@ -117,28 +121,46 @@ jtheme <- function(
 
     )
 
-    # Remove legend title.
-    if (!legend.title) th <- th + theme(legend.title = element_blank())
+    # Remove show_leg_title.
+    if (!show_leg_title) th <- th + theme(legend.title = element_blank())
 
-    # Set expand.
-    if ((!expand.x && !expand.y) | !expand) {
-        list(
-            scale_x_continuous(expand = expansion(mult = c(0, 0.05))),
-            scale_y_continuous(expand = expansion(mult = c(0, 0.05))),
-            th
+    # Rotate x axis label
+    if (rotate_x_labs) th <- th + theme(axis.text.x = element_text(angle = 90L, vjust = 0.5))
+
+    # Transform x labels to month..
+    if (x_labs_to_months == "fr") {
+        params_x_cont_1 <- list(
+            breaks = c(1L, 60, 121L, 182L, 244L, 305, 366),
+            labels = c("Jan", "Mar", "Mai", "Jul", "Sep", "Nov", "Déc")
         )
-    } else if (!expand.x && expand.y) {
-        list(
-            scale_x_continuous(expand = expansion(mult = c(0, 0.05))),
-            th
-        )
-    } else if (expand.x && !expand.y) {
-        list(
-            scale_y_continuous(expand = expansion(mult = c(0, 0.05))),
-            th
+    } else if (x_labs_to_months == "en") {
+        params_x_cont_1 <- list(
+            breaks = c(1L, 60, 121L, 182L, 244L, 305, 366),
+            labels = c("Jan", "Mar", "May", "Jul", "Sep", "Nov", "Dec")
         )
     } else {
-        th
+        params_x_cont_1 <- list()
     }
+
+    # Set parameter for expand_xy.
+    if (expand_xy == FALSE) {
+        params_x_cont_2 <- list(expand = expansion(mult = c(0, 0.05)))
+        params_y_cont_2 <- list(expand = expansion(mult = c(0, 0.05)))
+    } else if (expand_xy == "y_only") {
+        params_x_cont_2 <- list(expand = expansion(mult = c(0, 0.05)))
+        params_y_cont_2 <- list()
+    } else if (expand_xy == "x_only") {
+        params_x_cont_2 <- list()
+        params_y_cont_2 <- list(expand = expansion(mult = c(0, 0.05)))
+    } else {
+        params_x_cont_2 <- list()
+        params_y_cont_2 <- list()
+    }
+
+    return(list(
+        do.call(scale_x_continuous, c(params_x_cont_1, params_x_cont_2)),
+        do.call(scale_y_continuous, c(params_y_cont_2)),
+        th
+    ))
 
 }
