@@ -13,9 +13,10 @@ Installation
 
 `jtheme` use the Source Sans Pro, which is an [open source font](https://fonts.google.com/specimen/Source+Sans+Pro#standard-styles) from Google. It needs to be installed on your system and in R. It is located in the `fonts/` folder of the package. You will need the packages `extrafont` and `Rttf2pt1` in order to get the Source Sans Pro into R properly before you can use `jtheme`.
 
-1. Install `extrafont` package :
+1. Install `ggplot2` and `extrafont` packages :
 
 ```
+install.packages("ggplot2")
 install.packages("extrafont")
 ```
 
