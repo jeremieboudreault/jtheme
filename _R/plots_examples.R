@@ -86,7 +86,7 @@ ggtitle("Températures quotidiennes de l'air", "Deux villes du Québec") +
 labs(x = "Mesures quotidiennes (ºC)", y = "Fréquence") +
 jtheme(
     legend_pos     = "topleft",
-    expand_xy      = FALSE,
+    expand_xy      = "x_only",
     show_leg_title = FALSE
 )
 
