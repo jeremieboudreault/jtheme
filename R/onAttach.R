@@ -1,7 +1,18 @@
 #'@export
 .onAttach <- function(...){
 
-    message("Welcome to jtheme v0.0.1. Updating ggplot2 default aesthetics.")
+    # Welcome message.
+    message("Welcome to jtheme v0.0.2.")
+
+    # Load extrafont and load appropriately fonts.
+    suppressMessages(library("extrafont", quietly = TRUE))
+    extrafont::loadfonts(quiet = TRUE)
+
+    #  Message.
+    message("\U2713 Fonts loaded using extrafont")
+
+    # Load ggplot2 package.
+    suppressMessages(library("ggplot2", quietly = TRUE))
 
     # Update the color of the points.
     ggplot2::update_geom_defaults(
@@ -27,5 +38,9 @@
             lwd    = 0.3
         )
     )
+
+    # Message.
+    message("\U2713 ggplot2 default aesthetics updated.")
+
 
 }
