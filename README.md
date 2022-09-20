@@ -2,7 +2,7 @@
 ================================================================================
 
 ![](https://img.shields.io/badge/life_cycle-maturing-blue)
-![](https://img.shields.io/badge/release_version-0.0.1-inactive)
+![](https://img.shields.io/badge/release_version-0.0.2-inactive)
 ![](https://img.shields.io/badge/docs-0%25-red)
 ![](https://img.shields.io/badge/tests-0%25-black)
 
@@ -34,11 +34,11 @@ remotes::install_version("Rttf2pt1", version = "1.3.8")
 extrafont::font_import(path = "_fonts/")
 ```
 
-4. You can know install `jtheme` directly from GitHub :
+4. You can now install `jtheme` directly from GitHub :
 
 ```
 install.packages(
-    pkgs  = "https://github.com/jeremieboudreault/jtheme/raw/main/bin/jtheme_0.0.1.tar.gz", 
+    pkgs  = "https://github.com/jeremieboudreault/jtheme/raw/main/bin/jtheme_0.0.2.tar.gz", 
     repos = NULL
 )
 ```
