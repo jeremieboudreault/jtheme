@@ -49,7 +49,7 @@ conc_pol <- data.frame(
 # Air quality in New York city.
 airquality <- datasets::airquality
 airquality$MonthName <- c(
-    "", "", "", "", "Mai", "Juin", "Juillet", "Août", "Septembre"
+    "", "", "", "", "May", "June", "July", "August", "September"
 )[airquality$Month]
 
 
@@ -82,8 +82,8 @@ geom_histogram(
 scale_fill_manual(
     values = ul(jtheme::colors[c("light_blue", "light_red")])
 ) +
-ggtitle("Températures quotidiennes de l'air", "Deux villes du Québec") +
-labs(x = "Mesures quotidiennes (ºC)", y = "Fréquence") +
+ggtitle("Daily air temperature values", "Two cities of Quebec, Canada") +
+labs(x = "Daily values (ºC)", y = "Frequency") +
 jtheme(
     legend_pos     = "topleft",
     expand_xy      = "x_only",
@@ -107,12 +107,12 @@ geom_line(
 scale_color_manual(
     values = ul(jtheme::colors[c("blue", "red")])
 ) +
-ggtitle("Évolution des GES", "Niveau mondial") +
-labs(y = "Concentration (ppm)", x = "Années") +
+ggtitle("Greenhouse Gas  (GHG) evolution", "Global level") +
+labs(y = "Concentration (ppm)", x = "Years") +
 jtheme(legend_pos = "topright", expand_xy = FALSE, show_leg_title = FALSE)
 
 # Save.
-jtheme::save_ggplot("_plots/fig_2_squared.jpg", size = "squared")
+jtheme::save_ggplot("_plots/fig_2_squared.jpg", size = "sqr")
 
 
 # Times series -----------------------------------------------------------------
@@ -130,8 +130,8 @@ geom_line(
     )
 ) +
 scale_color_brewer(palette = "RdBu") +
-ggtitle("Concentration de quatre polluants") +
-labs(y = "Concentration (ppm)", x = "Jour de l'année") +
+ggtitle("Concentration of four pollutants") +
+labs(y = "Concentration (ppm)", x = "Day of year") +
 jtheme(expand_xy = FALSE, show_leg_title = FALSE, legend_pos = "topleft")
 
 # Save.
@@ -149,11 +149,11 @@ geom_point(
     mapping = aes(x = Ozone, y = Temp, col = as.factor(Month))
 ) +
 scale_color_brewer(palette = "Blues") +
-ggtitle("Relation entre la pollution et la température", "New York") +
+ggtitle("Relation between pollution and air temperature", "New York") +
 labs(
-    col = "Mois de l'année :",
-    x   = "Concentration d'ozone (ppm)",
-    y   = "Température (ºC)"
+    col = "Month :",
+    x   = "Ozone concentration (ppm)",
+    y   = "Air temperature (ºC)"
 ) +
 jtheme(show_grid = TRUE)
 
@@ -170,11 +170,11 @@ ggplot(
     mapping = aes(x = Ozone, y = Temp, color = MonthName)) +
 geom_point() +
 scale_color_brewer(palette = "Accent") +
-ggtitle("Relation entre la pollution et la température") +
+ggtitle("Relation between pollution and air temperatur") +
 labs(
-    col = "Mois de l'année :",
-    x  = "Concentration d'ozone (ppm)",
-    y  = "Température (ºC)"
+    col = "Month ",
+    x  = "Ozone concentration (ppm)",
+    y  = "Air temperature (ºC)"
 ) +
 facet_wrap(facets = "MonthName") +
 jtheme(show_grid = TRUE, borders = "all")
