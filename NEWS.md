@@ -12,4 +12,4 @@ To-do list :
 + Fix expand that does not allow to have a new scale_x or scale_y
 + Tight options for facets
 + Fix bug with `show_leg_title` that shit the legend to the top compared to "color = """ or fill = ""
-+ Adjust annotate_pos with the length of the text
++ Adjust annotate_pos with the length of the text 
