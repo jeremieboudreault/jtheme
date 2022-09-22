@@ -13,3 +13,4 @@ To-do list :
 + Tight options for facets
 + Fix bug with `show_leg_title` that shit the legend to the top compared to "color = """ or fill = ""
 + Adjust annotate_pos with the length of the text 
++ Fix scale_x_continuous, which override date x labs
