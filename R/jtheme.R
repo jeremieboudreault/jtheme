@@ -162,7 +162,7 @@ jtheme <- function(
         do.call(scale_y_continuous, c(params_y_cont_2)),
         guides(
             color = guide_legend(nrow = legend_nrow, ncol = legend_ncol, byrow = legend_byrow),
-            fill  = guide_legend(nrow = legend_nrow, ncol = legend_ncol, byrow = legend_byrow),
+            fill  = guide_legend(nrow = legend_nrow, ncol = legend_ncol, byrow = legend_byrow, color = NA),
         ),
         th
     ))
