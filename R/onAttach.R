@@ -39,8 +39,11 @@
         )
     )
 
+    # Change family of base plot.
+    par(family = "Source Sans Pro")
+
     # Message.
-    message("\U2713 ggplot2 default aesthetics updated.")
+    message("\U2713 Plots default aesthetics updated.")
 
 
 }
