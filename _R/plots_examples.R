@@ -36,7 +36,7 @@ co2_emissions <- data.table::data.table(
 # Concentration of pollutants.
 x <- seq(1L, 5L, length.out = 100L)
 conc_pol <- data.frame(
-    x = 201:300,
+    x = seq(1, 365, length.out = length(x)),
     y = c(
         (-cos(x) * 1.0 + 1 + rnorm(100, 0, 0.2))^2,
         (-cos(x) * 1.9 + 1 + rnorm(100, 0, 0.2))^2,
@@ -62,6 +62,7 @@ ggtitle("Classical histogram", "ggplot2")
 
 # With jtheme.
 library("jtheme")
+set.seed(2912)
 ggplot() + geom_histogram(data = data.frame(x = rnorm(100)), aes(x = x)) +
 ggtitle("Classical histogram", "jtheme") +
 jtheme(expand_xy = "x_only")
@@ -132,7 +133,8 @@ geom_line(
 scale_color_brewer(palette = "RdBu") +
 ggtitle("Concentration of four pollutants") +
 labs(y = "Concentration (ppm)", x = "Day of year") +
-jtheme(expand_xy = FALSE, show_leg_title = FALSE, legend_pos = "topleft")
+jtheme(expand_xy = FALSE, show_leg_title = FALSE,
+       legend_pos = "topleft", x_labs_to_months = TRUE)
 
 # Save.
 jtheme::save_ggplot("_plots/fig_3_rect.jpg", size = "rect")
