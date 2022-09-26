@@ -15,7 +15,8 @@
 #' @param legend_byrow : Should the legend be filled by row.
 #' @param rotate_x_labs : Parameter to rotate the x labels.
 #' @param show_grid : Toggle on/off the grid on ggplot2.
-#' @param x_labs_to_months : Transformation of julian days to month ("fr" or "en").
+#' @param x_labs_to_months : Transformation of julian days to month (TRUE/FALSE).
+#' @param language : Language of the plot ('fr' or 'eng')
 #'
 #' @export
 jtheme <- function(
@@ -28,7 +29,8 @@ jtheme <- function(
     rotate_x_labs    = FALSE,
     show_grid        = FALSE,
     show_leg_title   = TRUE,
-    x_labs_to_months = FALSE) {
+    x_labs_to_months = FALSE,
+    language         = "eng") {
 
     # Set base values.
     axis.size <- 0.3
@@ -128,16 +130,18 @@ jtheme <- function(
     if (rotate_x_labs) th <- th + theme(axis.text.x = element_text(angle = 90L, vjust = 0.5))
 
     # Transform x labels to month..
-    if (x_labs_to_months == "fr") {
-        params_x_cont_1 <- list(
-            breaks = c(1L, 60, 121L, 182L, 244L, 305, 366),
-            labels = c("Jan", "Mar", "Mai", "Jul", "Sep", "Nov", "Déc")
-        )
-    } else if (x_labs_to_months == "en") {
-        params_x_cont_1 <- list(
-            breaks = c(1L, 60, 121L, 182L, 244L, 305, 366),
-            labels = c("Jan", "Mar", "May", "Jul", "Sep", "Nov", "Dec")
-        )
+    if (x_labs_to_months) {
+        if (language == "fr") {
+            params_x_cont_1 <- list(
+                breaks = c(1L, 60, 121L, 182L, 244L, 305, 366),
+                labels = c("Jan", "Mar", "Mai", "Jul", "Sep", "Nov", "Déc")
+            )
+        } else {
+            params_x_cont_1 <- list(
+                breaks = c(1L, 60, 121L, 182L, 244L, 305, 366),
+                labels = c("Jan", "Mar", "May", "Jul", "Sep", "Nov", "Dec")
+            )
+        }
     } else {
         params_x_cont_1 <- list()
     }
@@ -157,15 +161,43 @@ jtheme <- function(
         params_y_cont_2 <- list()
     }
 
-    return(list(
-        do.call(scale_x_continuous, c(params_x_cont_1, params_x_cont_2)),
-        do.call(scale_y_continuous, c(params_y_cont_2)),
+    # Create a list for the output.
+    l <- list(
         guides(
             color = guide_legend(nrow = legend_nrow, ncol = legend_ncol, byrow = legend_byrow),
             fill  = guide_legend(nrow = legend_nrow, ncol = legend_ncol, byrow = legend_byrow,
                                  override.aes = list(color = "white")),
         ),
         th
-    ))
+    )
+
+    # Update the list
+    if (expand_xy == FALSE | (x_labs_to_months & expand_xy == "x_only")) {
+
+        l <- c(
+            do.call(scale_x_continuous, c(params_x_cont_1, params_x_cont_2)),
+            do.call(scale_y_continuous, c(params_y_cont_2)),
+            l
+        )
+
+    } else if (expand_xy == "x_only") {
+
+        l <- c(
+               do.call(scale_y_continuous, c(params_y_cont_2)),
+               l
+        )
+
+    } else if (expand_xy == "y_only" | x_labs_to_months) {
+
+        l <- c(
+            do.call(scale_x_continuous, c(params_x_cont_1, params_x_cont_2)),
+            l
+        )
+
+    }
+
+    # Return the list as the output.
+    return(l)
+
 
 }
