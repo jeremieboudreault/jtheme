@@ -164,9 +164,18 @@ jtheme <- function(
     # Create a list for the output.
     l <- list(
         guides(
-            color = guide_legend(nrow = legend_nrow, ncol = legend_ncol, byrow = legend_byrow),
-            fill  = guide_legend(nrow = legend_nrow, ncol = legend_ncol, byrow = legend_byrow,
-                                 override.aes = list(color = "white")),
+            color = guide_legend(
+                nrow         = legend_nrow,
+                ncol         = legend_ncol,
+                byrow        = legend_byrow,
+                override.aes = list(alpha = 1)
+            ),
+            fill  = guide_legend(
+                nrow        = legend_nrow,
+                ncol         = legend_ncol,
+                byrow        = legend_byrow,
+                override.aes = list(color = "white", alpha = 1)
+            )
         ),
         th
     )
