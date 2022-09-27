@@ -7,7 +7,7 @@ update_geom_args <- function(x) {
     # Default number to bins.
     formals(geom_histogram)$bins <- 12L
 
-    # Change family of ggplot2 and base plot.
+    # Change family of geom_text().
     formals(geom_text)$family <- "Source Sans Pro"
 
 }
