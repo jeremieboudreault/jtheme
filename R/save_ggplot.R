@@ -21,7 +21,7 @@ save_ggplot <- function(file, size = "rect", ...) {
     } else if (size == "rectbig") {
         w <- 8
         h <- 6
-    else if (size == "rectxbig") {
+    } else if (size == "rectxbig") {
         w <- 10
         h <- 8
     } else if (size == "sqrsmall") {
