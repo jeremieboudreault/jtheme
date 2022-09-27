@@ -133,13 +133,13 @@ jtheme <- function(
     if (x_labs_to_months) {
         if (language == "fr") {
             params_x_cont_1 <- list(
-                breaks = c(1L, 60, 121L, 182L, 244L, 305, 366),
-                labels = c("Jan", "Mar", "Mai", "Jul", "Sep", "Nov", "Déc")
+                breaks = c(1L, 60, 121L, 182L, 244L, 305),
+                labels = c("Jan", "Mar", "Mai", "Jul", "Sep", "Nov")
             )
         } else {
             params_x_cont_1 <- list(
-                breaks = c(1L, 60, 121L, 182L, 244L, 305, 366),
-                labels = c("Jan", "Mar", "May", "Jul", "Sep", "Nov", "Dec")
+                breaks = c(1L, 60, 121L, 182L, 244L, 305),
+                labels = c("Jan", "Mar", "May", "Jul", "Sep", "Nov")
             )
         }
     } else {
