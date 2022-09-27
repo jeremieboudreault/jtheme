@@ -43,7 +43,7 @@
     par(family = "Source Sans Pro")
 
     # Message.
-    message("\U2713 Plots default aesthetics updated.")
+    message("\U2713 Plots default aesthetics updated")
 
 
 }
