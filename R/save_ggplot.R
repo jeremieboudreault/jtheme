@@ -21,6 +21,9 @@ save_ggplot <- function(file, size = "rect", ...) {
     } else if (size == "rectbig") {
         w <- 8
         h <- 6
+    else if (size == "rectxbig") {
+        w <- 10
+        h <- 8
     } else if (size == "sqrsmall") {
         w <- 4
         h <- 3.5
@@ -30,10 +33,13 @@ save_ggplot <- function(file, size = "rect", ...) {
     } else if (size == "sqrbig") {
         w <- 8
         h <- 7
+    } else if (size == "sqrxbig") {
+        w <- 10
+        h <- 9
     } else {
         warning(
             "Argument 'size' invalid. Using default value 'rect'.\n",
-            "> Valid values are rect, rectsmall, rectbig, sqr, sqrsmall, sqrbig."
+            "> Valid values are rect, rectsmall, rectbig, rectxbig, sqr, sqrsmall, sqrbig, sqrxbig."
         )
         w <- 7; h <- 5
     }
