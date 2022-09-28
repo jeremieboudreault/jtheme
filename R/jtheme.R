@@ -22,10 +22,11 @@
 jtheme <- function(
     borders          = "normal",
     expand_xy        = TRUE,
-    legend_pos       = "bottom",
+    legend_alpha     = NULL,
+    legend_byrow     = FALSE,
     legend_nrow      = NULL,
     legend_ncol      = NULL,
-    legend_byrow     = FALSE,
+    legend_pos       = "bottom",
     rotate_x_labs    = FALSE,
     show_grid        = FALSE,
     show_leg_title   = TRUE,
@@ -132,6 +133,15 @@ jtheme <- function(
     # Rotate x axis label
     if (rotate_x_labs) th <- th + theme(axis.text.x = element_text(angle = 90L, vjust = 0.5))
 
+    # Set paremeter for alpha in the legend.
+    if (is.null(legend_alpha)) {
+        override_col <- list()
+        override_fill <- list(color = "white")
+    } else {
+        override_col <- list(alpha = legend_alpha)
+        override_fill <- list(alpha = legend_alpha, color = "white")
+    }
+
     # Transform x labels to month..
     if (x_labs_to_months) {
         if (language == "fr") {
@@ -171,13 +181,15 @@ jtheme <- function(
                 nrow         = legend_nrow,
                 ncol         = legend_ncol,
                 byrow        = legend_byrow,
-                override.aes = list(alpha = 1)
+                override.aes = override_col,
+                order        = 1L,
             ),
             fill  = guide_legend(
-                nrow        = legend_nrow,
+                nrow         = legend_nrow,
                 ncol         = legend_ncol,
                 byrow        = legend_byrow,
-                override.aes = list(color = "white", alpha = 1)
+                override.aes = override_fill,
+                order        = 2L
             )
         ),
         th
@@ -210,6 +222,5 @@ jtheme <- function(
 
     # Return the list as the output.
     return(l)
-
 
 }
