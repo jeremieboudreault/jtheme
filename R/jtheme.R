@@ -86,6 +86,9 @@ jtheme <- function(
         # Axis title.
         axis.title = element_text(size = 11L),
 
+        # Legend title size.
+        legend.title = element_text(size = 9.5),
+
         # Axis text (labels)
         axis.text = element_text(size = 9.5, color = "black"),
 
