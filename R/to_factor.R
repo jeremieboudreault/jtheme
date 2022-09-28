@@ -1,3 +1,5 @@
+# to_factor.R
+
 #' A small wrapper for factor function.
 #'
 #' `to_factor` is a wrapper for [base::factor()] that allows to easily convert
