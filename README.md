@@ -54,7 +54,7 @@ ggplot() + ... + jtheme()
 Examples
 --------------------------------------------------------------------------------
 
-> ***Note** : All examples are from fake data.*
+> **Note** : All examples are from fake data.
 
 ### 1. Histogram of temperature data
 
