@@ -105,6 +105,13 @@ Examples
 
 <img src = "_plots/fig_4_rect.jpg" width = "500px" align = "center">
 
-#### Facets :
+### 5. Scatter plot or air pollution and temperature by facets
+
+```r
++ jtheme(
+    show_grid = TRUE,  # Add a grid in the plot
+    borders   = "all"  # Add complete borders
+)
+```
 
 <img src = "_plots/fig_5_rectbig.jpg" width = "500px" align = "center">
