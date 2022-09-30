@@ -15,6 +15,7 @@
 #' @param legend_byrow : Should the legend be filled by row.
 #' @param rotate_x_labs : Parameter to rotate the x labels.
 #' @param show_grid : Toggle on/off the grid on ggplot2.
+#' @param tight_facet : Toogle on/off the tight facetting
 #' @param x_labs_to_months : Transformation of julian days to month (TRUE/FALSE).
 #' @param language : Language of the plot ('fr' or 'eng')
 #'
@@ -30,6 +31,7 @@ jtheme <- function(
     rotate_x_labs    = FALSE,
     show_grid        = FALSE,
     show_leg_title   = TRUE,
+    tight_facets     = FALSE,
     x_labs_to_months = FALSE,
     language         = "eng") {
 
@@ -133,7 +135,15 @@ jtheme <- function(
     # Rotate x axis label
     if (rotate_x_labs) th <- th + theme(axis.text.x = element_text(angle = 90L, vjust = 0.5))
 
-    # Set paremeter for alpha in the legend.
+    # Add tight setting option for facets.
+    if (tight_facets) th <- th + theme(
+        panel.spacing.x  = unit(-0.1, "cm"),
+        panel.spacing.y  = unit(-0.1, "cm"),
+        strip.background = element_rect(fill = NA),
+        strip.text.x     = element_text(size = 8L, vjust = -0.2)
+    )
+
+    # Set parameters for alpha in the legend.
     if (is.null(legend_alpha)) {
         override_col <- list()
         override_fill <- list(color = "white")
@@ -146,12 +156,12 @@ jtheme <- function(
     if (x_labs_to_months) {
         if (language == "fr") {
             params_x_cont_1 <- list(
-                breaks = c(1L, 60, 121L, 182L, 244L, 305),
+                breaks = c(1L, 60, 121L, 182L, 244L, 305L),
                 labels = c("Jan", "Mar", "Mai", "Jul", "Sep", "Nov")
             )
         } else {
             params_x_cont_1 <- list(
-                breaks = c(1L, 60, 121L, 182L, 244L, 305),
+                breaks = c(1L, 60, 121L, 182L, 244L, 305L),
                 labels = c("Jan", "Mar", "May", "Jul", "Sep", "Nov")
             )
         }
