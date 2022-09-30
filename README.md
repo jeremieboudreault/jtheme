@@ -114,4 +114,4 @@ Examples
 )
 ```
 
-<img src = "_plots/fig_5_rectbig.jpg" width = "500px" align = "center">
+<img src = "_plots/fig_5_rectbig.jpg" width = "800px" align = "center">
