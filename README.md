@@ -15,14 +15,14 @@ Installation
 
 1. Install `ggplot2` and `extrafont` packages :
 
-```
+```r
 install.packages("ggplot2")
 install.packages("extrafont")
 ```
 
 2. Install `Rttf2` using the `remotes` package :
 
-```
+```r
 install.packages("remotes")
 library(remotes)
 remotes::install_version("Rttf2pt1", version = "1.3.8")
@@ -30,13 +30,13 @@ remotes::install_version("Rttf2pt1", version = "1.3.8")
 
 3. Import the Source Sans Pro font into R : 
 
-```
+```r
 extrafont::font_import(path = "_fonts/")
 ```
 
 4. You can now install `jtheme` directly from GitHub :
 
-```
+```r
 install.packages(
     pkgs  = "https://github.com/jeremieboudreault/jtheme/raw/main/bin/jtheme_0.0.2.tar.gz", 
     repos = NULL
@@ -45,7 +45,7 @@ install.packages(
 
 5. You can start using `jtheme` by simply adding it to your `ggplot2` plots :
 
-```
+```r
 library(jtheme)
 ggplot() + ... + jtheme()
 ```
