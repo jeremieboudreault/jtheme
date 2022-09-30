@@ -62,9 +62,8 @@ Examples
 
 ```r
 + jtheme(
-
     expand_xy      = "x_only",   # Remove expanding of y-axis
-    legend_pos     = "topleft",  # Legend at the top 
+    legend_pos     = "topright", # Legend at the top-right
     show_leg_title = FALSE       # Hide legend title
 
 )
@@ -72,20 +71,28 @@ Examples
 
 <img src = "_plots/fig_1_rect.jpg" width = "500px" align = "center">
 
-#### GHG concentration
+### 2. GHG evolution
 
 ```r
 + jtheme(
-    legend_pos     = "topright",  # Legend at top-right
-    expand_xy      = FALSE,       # No expansion of x and y axes
-    show_leg_title = FALSE        # No legend title
+    expand_xy      = FALSE,      # No expansion of x and y axes
+    legend_pos     = "topleft",  # Legend at top-left
+    show_leg_title = FALSE       # No legend title
 )
-
 ```
 
 <img src = "_plots/fig_2_squared.jpg" width = "500px" align = "center">
 
-#### Time series :
+### 3. Times series of air pollution
+
+```r
++ jtheme(
+    expand_xy        = FALSE,      # No expansion of x and y axes
+    legend_pos       = "topleft",  # Legend at top-left
+    show_leg_title   = FALSE       # No legend title
+    x_labs_to_months = TRUE        # Convert x-labels to months
+)
+```
 
 <img src = "_plots/fig_3_rect.jpg" width = "500px" align = "center">
 
