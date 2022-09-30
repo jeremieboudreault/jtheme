@@ -60,6 +60,10 @@ Examples
 
 #### Histograms :
 
+```r
++ jtheme(expand_xy = "x_only")  # Remove the expand of the y-axis
+```
+
 <img src = "_plots/fig_1_rect.jpg" width = "500px" align = "center">
 
 #### Lines :
