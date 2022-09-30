@@ -16,7 +16,7 @@ v0.0.2
 
 ### Changes : 
 
-
+* Fixed `legend_pos` value for right and left that were reversed.
 Known bugs and to-do list
 --------------------------------------------------------------------------------
 
