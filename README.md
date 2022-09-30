@@ -65,7 +65,6 @@ Examples
     expand_xy      = "x_only",   # Remove expanding of y-axis
     legend_pos     = "topright", # Legend at the top-right
     show_leg_title = FALSE       # Hide legend title
-
 )
 ```
 
@@ -96,7 +95,13 @@ Examples
 
 <img src = "_plots/fig_3_rect.jpg" width = "500px" align = "center">
 
-#### Scatter plot :
+### 4. Scatter plot or air pollution and temperature
+
+```r
++ jtheme(
+    show_grid = TRUE  # Add a grid in the plot
+)
+```
 
 <img src = "_plots/fig_4_rect.jpg" width = "500px" align = "center">
 
