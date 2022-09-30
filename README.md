@@ -95,7 +95,7 @@ Examples
 
 <img src = "_plots/fig_3_rect.jpg" width = "500px" align = "center">
 
-### 4. Scatter plot or air pollution and temperature
+### 4. Scatter plot of air pollution and temperature
 
 ```r
 + jtheme(
@@ -105,7 +105,7 @@ Examples
 
 <img src = "_plots/fig_4_rect.jpg" width = "500px" align = "center">
 
-### 5. Scatter plot or air pollution and temperature by facets
+### 5. Scatter plot of air pollution and temperature by facets
 
 ```r
 + jtheme(
