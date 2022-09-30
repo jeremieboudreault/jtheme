@@ -4,9 +4,17 @@ History
 v0.0.2
 --------------------------------------------------------------------------------
 
-* Added the `to_lower()` function  : ....
-* Added the `to_factor()` function  : ....
-* Added the `legend_alpha` option to `jtheme()` :
+### Options added to `jtheme()` :
+
+* `legend_alpha` option : 
+* `tight_facets` option : 
+
+### Function added to the package :
+
+* `to_lower()` function  : ....
+* `to_factor()`  function  : ....
+
+### Changes : 
 
 
 Known bugs and to-do list
