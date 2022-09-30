@@ -58,15 +58,30 @@ Examples
 
 ***Note** : All illustrations are from fake data.*
 
-#### Histograms :
+### 1. Histogram of temperature data
 
 ```r
-+ jtheme(expand_xy = "x_only")  # Remove the expand of the y-axis
++ jtheme(
+
+    expand_xy      = "x_only",   # Remove expanding of y-axis
+    legend_pos     = "topleft",  # Legend at the top 
+    show_leg_title = FALSE       # Hide legend title
+
+)
 ```
 
 <img src = "_plots/fig_1_rect.jpg" width = "500px" align = "center">
 
-#### Lines :
+#### GHG concentration
+
+```r
++ jtheme(
+    legend_pos     = "topright",  # Legend at top-right
+    expand_xy      = FALSE,       # No expansion of x and y axes
+    show_leg_title = FALSE        # No legend title
+)
+
+```
 
 <img src = "_plots/fig_2_squared.jpg" width = "500px" align = "center">
 
