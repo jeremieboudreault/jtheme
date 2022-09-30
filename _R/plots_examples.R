@@ -21,6 +21,7 @@ library(ggplot2)
 
 
 # Generate temperature for Montreal and Quebec.
+set.seed(123L)
 temp_mtl_qc <- data.frame(
     x    = c(rnorm(100, 05, 5), rnorm(100, 15, 10)),
     city = c("Montréal", "Québec")[sample(c(1,2), size = 200L, replace = TRUE)]
@@ -57,12 +58,13 @@ airquality$MonthName <- c(
 
 
 # Classical.
+set.seed(1229L)
 ggplot() + geom_histogram(data = data.frame(x = rnorm(100)), aes(x = x)) +
 ggtitle("Classical histogram", "ggplot2")
 
 # With jtheme.
 library("jtheme")
-set.seed(2912)
+set.seed(1229L)
 ggplot() + geom_histogram(data = data.frame(x = rnorm(100)), aes(x = x)) +
 ggtitle("Classical histogram", "jtheme") +
 jtheme(expand_xy = "x_only")
@@ -108,7 +110,7 @@ geom_line(
 scale_color_manual(
     values = ul(jtheme::colors[c("blue", "red")])
 ) +
-ggtitle("Greenhouse Gas  (GHG) evolution", "Global level") +
+ggtitle("Greenhouse Gas (GHG) evolution", "Global level") +
 labs(y = "Concentration (ppm)", x = "Years") +
 jtheme(legend_pos = "topright", expand_xy = FALSE, show_leg_title = FALSE)
 
@@ -132,7 +134,7 @@ geom_line(
 ) +
 scale_color_brewer(palette = "RdBu") +
 ggtitle("Concentration of four pollutants") +
-labs(y = "Concentration (ppm)", x = "Day of year") +
+labs(y = "Concentration (ppm)", x = "Date") +
 jtheme(expand_xy = FALSE, show_leg_title = FALSE,
        legend_pos = "topleft", x_labs_to_months = TRUE)
 
@@ -151,7 +153,7 @@ geom_point(
     mapping = aes(x = Ozone, y = Temp, col = as.factor(Month))
 ) +
 scale_color_brewer(palette = "Blues") +
-ggtitle("Relation between pollution and air temperature", "New York") +
+ggtitle("Relation between air temperature and pollution", "New York") +
 labs(
     col = "Month :",
     x   = "Ozone concentration (ppm)",
@@ -174,7 +176,7 @@ geom_point() +
 scale_color_brewer(palette = "Accent") +
 ggtitle("Relation between pollution and air temperatur") +
 labs(
-    col = "Month ",
+    col = "Month :",
     x  = "Ozone concentration (ppm)",
     y  = "Air temperature (ºC)"
 ) +
@@ -183,3 +185,4 @@ jtheme(show_grid = TRUE, borders = "all")
 
 # Save.
 jtheme::save_ggplot("_plots/fig_5_rectbig.jpg", size = "rectbig")
+
