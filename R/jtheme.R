@@ -55,9 +55,9 @@ jtheme <- function(
     }
 
     # Replace legend position when set to topleft, topright and bottomright.
-    if (legend_pos == "topleft") {
+    if (legend_pos == "topright") {
         legend_pos <- c(0.9, 0.9)
-    } else if (legend_pos == "topright") {
+    } else if (legend_pos == "topleft") {
         legend_pos <- c(0.15, 0.9)
     } else if (legend_pos == "bottomright") {
         legend_pos <- c(0.9, .1)
