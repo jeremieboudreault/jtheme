@@ -50,13 +50,11 @@ library(jtheme)
 ggplot() + ... + jtheme()
 ```
 
-***Enjoy !***
-
 
 Examples
 --------------------------------------------------------------------------------
 
-***Note** : All illustrations are from fake data.*
+> ***Note** : All examples are from fake data.*
 
 ### 1. Histogram of temperature data
 
