@@ -68,7 +68,7 @@ Examples
 
 <img src = "_plots/fig_1_rect.jpg" width = "500px" align = "center">
 
-### 2. GHG evolution
+### 2. Times series of GHG evolution
 
 ```r
 + jtheme(
