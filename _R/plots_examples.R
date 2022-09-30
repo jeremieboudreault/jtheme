@@ -88,7 +88,7 @@ scale_fill_manual(
 ggtitle("Daily air temperature values", "Two cities of Quebec, Canada") +
 labs(x = "Daily values (ºC)", y = "Frequency") +
 jtheme(
-    legend_pos     = "topleft",
+    legend_pos     = "topright",
     expand_xy      = "x_only",
     show_leg_title = FALSE
 )
@@ -112,7 +112,7 @@ scale_color_manual(
 ) +
 ggtitle("Greenhouse Gas (GHG) evolution", "Global level") +
 labs(y = "Concentration (ppm)", x = "Years") +
-jtheme(legend_pos = "topright", expand_xy = FALSE, show_leg_title = FALSE)
+jtheme(legend_pos = "topleft", expand_xy = FALSE, show_leg_title = FALSE)
 
 # Save.
 jtheme::save_ggplot("_plots/fig_2_squared.jpg", size = "sqr")
