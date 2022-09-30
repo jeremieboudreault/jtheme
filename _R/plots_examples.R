@@ -136,7 +136,7 @@ scale_color_brewer(palette = "RdBu") +
 ggtitle("Concentration of four pollutants") +
 labs(y = "Concentration (ppm)", x = "Date") +
 jtheme(expand_xy = FALSE, show_leg_title = FALSE,
-       legend_pos = "topleft", x_labs_to_months = TRUE)
+       legend_pos = "topright", x_labs_to_months = TRUE)
 
 # Save.
 jtheme::save_ggplot("_plots/fig_3_rect.jpg", size = "rect")
@@ -174,7 +174,7 @@ ggplot(
     mapping = aes(x = Ozone, y = Temp, color = MonthName)) +
 geom_point() +
 scale_color_brewer(palette = "Accent") +
-ggtitle("Relation between pollution and air temperatur") +
+ggtitle("Relation between pollution and air temperature") +
 labs(
     col = "Month :",
     x  = "Ozone concentration (ppm)",
