@@ -18,6 +18,9 @@ v0.0.2
 
 * Fixed `legend_pos` value for right and left that were reversed.
 Known bugs and to-do list
+* Fixed color and linetype that splitted because of the order in the legend
+* Fixed the spacing for tight faceting where all lines connect now
+
 --------------------------------------------------------------------------------
 
 + Change default histogram position to "dodge2" (tested using "formals()")
