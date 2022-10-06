@@ -39,6 +39,10 @@ jtheme <- function(
     axis.size <- 0.3
     ticks.color <- "black"
 
+    # Set values for expand_xy.
+    expd_x <- 0.05
+    expd_y <- 0.05
+
     # Check for grid.
     grid.color <- if (show_grid) "grey70" else "white"
 
@@ -136,12 +140,19 @@ jtheme <- function(
     if (rotate_x_labs) th <- th + theme(axis.text.x = element_text(angle = 90L, vjust = 0.5))
 
     # Add tight setting option for facets.
-    if (tight_facets) th <- th + theme(
-        panel.spacing.x  = unit(-0.1, "cm"),
-        panel.spacing.y  = unit(-0.1, "cm"),
-        strip.background = element_rect(fill = NA),
-        strip.text.x     = element_text(size = 8L, vjust = -0.2)
-    )
+    if (tight_facets)  {
+
+        # Reduce the spacing for x-spacing.
+        expd_x <- 0.01
+
+        # Adjust theme.
+        th <- th + theme(
+            panel.spacing.x  = unit(-0.1, "cm"),
+            panel.spacing.y  = unit(-0.1, "cm"),
+            strip.background = element_rect(fill = NA),
+            strip.text.x     = element_text(size = 8L, vjust = -0.2)
+        )
+    }
 
     # Set parameters for alpha in the legend.
     if (is.null(legend_alpha)) {
@@ -171,14 +182,14 @@ jtheme <- function(
 
     # Set parameter for expand_xy.
     if (expand_xy == FALSE) {
-        params_x_cont_2 <- list(expand = expansion(mult = c(0, 0.05)))
-        params_y_cont_2 <- list(expand = expansion(mult = c(0, 0.05)))
+        params_x_cont_2 <- list(expand = expansion(mult = c(0, expd_x)))
+        params_y_cont_2 <- list(expand = expansion(mult = c(0, expd_y)))
     } else if (expand_xy == "y_only") {
-        params_x_cont_2 <- list(expand = expansion(mult = c(0, 0.05)))
+        params_x_cont_2 <- list(expand = expansion(mult = c(0, expd_x)))
         params_y_cont_2 <- list()
     } else if (expand_xy == "x_only") {
         params_x_cont_2 <- list()
-        params_y_cont_2 <- list(expand = expansion(mult = c(0, 0.05)))
+        params_y_cont_2 <- list(expand = expansion(mult = c(0, expd_y)))
     } else {
         params_x_cont_2 <- list()
         params_y_cont_2 <- list()
@@ -191,15 +202,14 @@ jtheme <- function(
                 nrow         = legend_nrow,
                 ncol         = legend_ncol,
                 byrow        = legend_byrow,
-                override.aes = override_col,
-                order        = 1L,
+                override.aes = override_col
             ),
             fill  = guide_legend(
                 nrow         = legend_nrow,
                 ncol         = legend_ncol,
                 byrow        = legend_byrow,
                 override.aes = override_fill,
-                order        = 2L
+                order        = 99L
             )
         ),
         th
