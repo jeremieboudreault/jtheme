@@ -38,7 +38,7 @@ extrafont::font_import(path = "_fonts/")
 
 ```r
 install.packages(
-    pkgs  = "https://github.com/jeremieboudreault/jtheme/raw/main/bin/jtheme_0.0.2.tar.gz", 
+    pkgs  = "https://github.com/jeremieboudreault/jtheme/raw/main/_bin/jtheme_0.0.2.tar.gz", 
     repos = NULL
 )
 ```
