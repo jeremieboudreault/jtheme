@@ -8,6 +8,8 @@ v0.0.2
 
 * `legend_alpha` option : 
 * `tight_facets` option : 
+* `title_size` option :
+* `title_face` option : 
 
 ### Function added to the package :
 

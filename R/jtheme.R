@@ -16,6 +16,8 @@
 #' @param rotate_x_labs : Parameter to rotate the x labels.
 #' @param show_grid : Toggle on/off the grid on ggplot2.
 #' @param tight_facet : Toogle on/off the tight facetting
+#' @param title_size : Customise title size. Default to `14L`.
+#' @param title_face : Customise title face. Default to `"bold"`.
 #' @param x_labs_to_months : Transformation of julian days to month (TRUE/FALSE).
 #' @param language : Language of the plot ('fr' or 'eng')
 #'
@@ -32,6 +34,8 @@ jtheme <- function(
     show_grid        = FALSE,
     show_leg_title   = TRUE,
     tight_facets     = FALSE,
+    title_size       = 14L,
+    title_face       = "bold",
     x_labs_to_months = FALSE,
     language         = "eng") {
 
@@ -75,8 +79,8 @@ jtheme <- function(
 
         # Title
         plot.title = element_text(
-            size   = 14,
-            face   = "bold",
+            size   = title_size,
+            face   = title_face,
             hjust  = 0.5,
             vjust  = 0.8,
             margin = margin(b = 10, t = 5)
