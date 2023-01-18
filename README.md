@@ -1,12 +1,12 @@
-***jtheme*** : a custom `ggplot2` theme
+***jtheme*** : Enhanced `ggplot2` theme and functions.
 ================================================================================
 
 ![](https://img.shields.io/badge/life_cycle-maturing-blue)
-![](https://img.shields.io/badge/release_version-0.0.2-inactive)
+![](https://img.shields.io/badge/release_version-0.0.3-blue)
 ![](https://img.shields.io/badge/docs-0%25-red)
 ![](https://img.shields.io/badge/tests-0%25-black)
 
-Welcome to `jtheme`, a custom theme for ggplot2, adapted for scientific content such as papers, presentations and more. 
+Welcome to `jtheme`, a collection of enhanced functions and a custom theme for R package `ggplot2`, adapted for scientific content such as papers, presentations and more. 
 
 Installation
 --------------------------------------------------------------------------------
