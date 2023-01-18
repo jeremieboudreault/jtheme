@@ -2,7 +2,7 @@
 .onAttach <- function(...){
 
     # Welcome message.
-    message("Welcome to jtheme v0.0.2.")
+    message("Welcome to jtheme v0.0.3.")
 
     # Load extrafont and load appropriately fonts.
     suppressMessages(library("extrafont", quietly = TRUE))
