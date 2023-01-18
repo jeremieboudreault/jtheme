@@ -1,4 +1,4 @@
-***jtheme*** : Enhanced `ggplot2` theme and functions.
+***jtheme*** : Enhanced `ggplot2` theme and functions
 ================================================================================
 
 ![](https://img.shields.io/badge/life_cycle-maturing-blue)
