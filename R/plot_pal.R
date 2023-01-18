@@ -9,11 +9,13 @@
 #' @export
 
 plot_pal <- function(pal) {
+
     plot(
-        x  = seq_along(pal),
-        y  = rep(1L, length(pal)),
+        x   = seq_along(pal),
+        y   = rep(1, length(pal)),
         col = pal,
         pch = 19,
         cex = 5
     )
+
 }
